@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan Jquery</title>
+</head>
+<body>
+    <h2>Fad In / Fade Out</h2>
+    <img src="http://via.placeholder.com/300" alt="">
+    <button class="btn-hide">
+        Hide Image
+    </button>
+    <button class="btn-show">
+        Show Image
+    </button>
+    
+    <ul class="fruits" >
+        <li>Aple</li>
+        <li>Jeruk</li>
+        <li>Mangga</li>
+    </ul>
+    
+    <input type="text" class="input-fruit">
+    <button class="btn-add-fruit">Tambahkan</button>
+    
+    <h2>Append</h2>
+    Nama
+    <input type="text" class="input-name">
+    
+    Umur
+    <input type="text" class="input-umur">
+  
+    <button type="submit" name="tampil" value="Tampil" class="tampil">Tambahkan</button>
+    
+    <div class="hasil"></div>
+    
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $('.btn-hide').click(function(){
+            $('img').fadeOut();
+        })
+        $('.btn-show').click(function(){
+            $('img').fadeIn();
+        });
+        
+        $('.btn-add-fruit').click(function(){
+            var fruit = $('.input-fruit').val();
+            
+            $('.fruits').append('<li>' + fruit + '</li>');
+        });
+        
+        $('.input-fruit').keypress(function(object){
+            var fruit = $('.input-fruit').val();
+            
+            if(object.which == 13){
+                $('.fruits').append('<li>' + fruit + '</li>');
+            }
+        });
+        
+        $('.tampil').keypress(function(object){
+            var nama = $('.input-name').val();
+            var umur = $('.input-umur').val();
+            
+            $('.hasil').append (nama + umur);
+           
+        });
+        
+    </script>
+</body>
+</html>
